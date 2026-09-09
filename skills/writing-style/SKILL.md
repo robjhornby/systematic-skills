@@ -16,9 +16,9 @@ Before writing or revising a passage, identify its reader. Determine what that r
 
 The profiles run from the least project context to the most.
 
-- **Adopter.** Knows neither the project nor its internal terms. Reads READMEs and user documentation.
-- **Contributor.** Knows the language and tools but not this repository. Reads contribution guides, developer documentation, and ADRs.
-- **Executor.** Knows the codebase but not the conversation that produced the task. Reads specs, tickets, plans, prompts, and handoffs to a fresh session.
+- **Adopter.** New to the project and its internal terms. Reads READMEs and user documentation.
+- **Contributor.** Knows the language and tools. Needs an introduction to this repository. Reads contribution guides, developer documentation, and ADRs.
+- **Executor.** Knows the codebase. Has no context from the conversation that produced the task. Reads specs, tickets, plans, prompts, and handoffs to a fresh session.
 - **Maintainer.** Has the relevant code in view. Reads comments, docstrings, commit messages, and log lines.
 - **Peer.** Knows the codebase and the conversation. Reads chat replies, review comments, and handoffs between current participants.
 
@@ -32,7 +32,7 @@ Remove context the reader already has. Use an established domain term without re
 
 ## Address at most two readers
 
-A document may need two paces. For example, a README can introduce the project to adopters and include a separate setup section for contributors. Give each reader a continuous section under a clear heading. Change pace only at a visible boundary, such as a heading or code fence. A mid-paragraph change makes one reader wade through known material while another must infer missing context.
+A document may need two paces. For example, a README can introduce the project to adopters and include a separate setup section for contributors. Give each reader a continuous section under a clear heading. Change pace only at a visible boundary, such as a heading or code fence. A mid-paragraph change repeats known material for one reader and leaves another without needed context.
 
 When both readers need the same information, write it once for the reader with less context. A knowledgeable reader can skim a familiar definition; a new reader cannot recover a missing one.
 
@@ -56,7 +56,7 @@ Revise in this order:
 
 1. Identify the intended reader before changing any words.
 2. Mark every stall and jump.
-3. Cut stalls and supply the context needed to bridge jumps.
+3. Cut stalls and add the missing context to remove jumps.
 
 Do not pursue brevity by itself. Readers can skim a redundant sentence, but missing context forces them to stop and reconstruct the argument.
 
@@ -77,6 +77,8 @@ Use a complete sentence unless a heading, label, or short description makes the 
 State the behaviour, invariant, or result. Omit praise, suspense, claims of importance, and announcements about what the next section will cover.
 
 Explain what a thing is. Use contrast only when the difference is the point, such as a trade-off between two options or an invariant that readers often reverse. Otherwise, state the correct fact directly. After a correction, replace the old explanation instead of recounting why it was wrong.
+
+Avoid the stock "X, not Y" construction. State X alone when it carries the point. When the comparison matters, vary the sentence structure and explain the difference.
 
 Describe the current state unless the document records change. Changelogs record history, specs describe future work, and dated logs record events. Other documents should omit migration history, former behaviour, planned replacements, and progress reports.
 

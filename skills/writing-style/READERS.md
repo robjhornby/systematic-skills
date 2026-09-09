@@ -14,18 +14,18 @@ This description could apply to any library:
 A powerful and flexible library that makes working with units a breeze.
 ```
 
-This revision names the library's behaviour and the error it prevents:
+This revision names the library's purpose and what users can do with it:
 
 ```markdown
-Attaches physical units to Polars columns. Adding a column in seconds to one in
-milliseconds converts the values instead of silently producing a wrong number.
+A library for working with physical units in Polars. Convert column values
+between units without writing the conversion arithmetic by hand.
 ```
 
 ## Contributor
 
 Contributors read so they can change the repository correctly. They use contribution guides, developer documentation, and ADRs.
 
-They know the language and tools, but not this repository. Give them details they cannot infer: commands, required checks, conventions that tools do not enforce, and reasons for rules that would otherwise seem arbitrary. Do not repeat information that the tools display at the point of failure.
+They know the language and tools. They need an introduction to this repository. Give them details they cannot infer: commands, required checks, conventions that tools do not enforce, and reasons for rules that would otherwise seem arbitrary. Do not repeat information that the tools display at the point of failure.
 
 This instruction does not define the standard or the required action:
 
@@ -47,7 +47,7 @@ Executors act on instructions without the conversation that produced them. They 
 
 They know the codebase and can inspect its contents. They still need enough information to find the work and judge when it is complete. Name modules, interfaces, constraints, and acceptance criteria in the project's searchable vocabulary. Record settled decisions without replaying the deliberation. Follow any required document structure.
 
-An agent starting a new session is an executor, not a peer. Restate terms coined in conversation and identify agreed files by path. A human colleague who participated in the work is a peer.
+An agent starting a new session is an executor. Restate terms coined in conversation and identify agreed files by path. A human colleague who participated in the work is a peer.
 
 This handoff hides every actionable detail:
 
@@ -61,8 +61,9 @@ This revision identifies the interface, behaviour, dependency, and error cases:
 ```markdown
 Add `parse_local_datetime` to the shared pipeline utilities. It takes a naive
 Europe/London wall-clock datetime and returns a UTC-aware datetime. Use
-`zoneinfo.ZoneInfo("Europe/London")` rather than a fixed offset, and raise
-`ValueError` for an aware input. Ambiguous fall-back times use `fold=0`.
+`zoneinfo.ZoneInfo("Europe/London")` so daylight-saving transitions use the
+correct offset. Raise `ValueError` for an aware input. Ambiguous fall-back times
+use `fold=0`.
 ```
 
 ## Maintainer
