@@ -1,107 +1,138 @@
-# The five readers
+# The six readers
 
-This guide defines five reader profiles for technical writing. Each section describes the reader's prior knowledge, the information they need, and examples of ineffective and effective passages. Choose a profile in [SKILL.md](SKILL.md), then read the matching section here.
+This guide defines six recurring reader profiles for technical writing. The profiles combine the reader's relationship to the work, public product knowledge, repository knowledge, and task conversation knowledge. Each profile also names the reader's goal and typical documents.
+
+The profiles describe common situations rather than exclusive roles. A returning user who starts contributing code may fit the Returning user profile for release notes and the Contributor profile for repository setup. Choose a profile for each section according to the assumed knowledge and required action.
+
+| Profile | Relationship and goal | Public product knowledge | Repository knowledge | Task conversation knowledge | Typical documents |
+| --- | --- | --- | --- | --- | --- |
+| Adopter | Prospective user deciding whether to adopt and learning the basic workflow | None assumed | None assumed | None assumed | READMEs, getting-started guides, user documentation |
+| Returning user | Current or previous user deciding whether a change applies and what to do | Established public concepts and previous behavior | None assumed | None assumed | Changelogs, release notes, migration guides, how-to guides, reference documentation |
+| Contributor | Repository participant preparing to change the project | None assumed | Knows the language and tools, but is new to the repository | None assumed | Contribution guides, developer documentation, ADRs |
+| Executor | Repository participant completing a scoped task | Depends on the task | Knows the codebase | None from the discussion that produced the task | Specs, tickets, plans, prompts, fresh-session handoffs |
+| Maintainer | Person changing an implementation without violating its contracts | Varies by implementation | Can access the relevant code | None assumed | Comments, docstrings, commit messages, log lines |
+| Peer | Current participant continuing shared work | Knows the same public behavior as the writer | Knows the codebase | Knows the current conversation | Chat replies, review comments, current-session handoffs |
 
 ## Adopter
 
-Adopters decide whether to use the project and learn how to get it working. They read READMEs and user documentation.
+Adopters decide whether to use the project and learn the basic workflow. They read READMEs and user documentation.
 
-They have no project context. Define internal terms on first use, give complete paths, and explain the project's purpose before its implementation. Tell adopters what the project does, what it requires, and how to run it. Use concrete claims instead of promotional adjectives.
+Adopters have no product or repository context. Define internal terms on first use and explain the product's purpose before explaining the implementation. Tell adopters the product's purpose, prerequisites, installation steps, and first command. Use concrete claims instead of promotional adjectives.
 
-This description could apply to any library:
+The first description could apply to any library:
 
-```markdown
-A powerful and flexible library that makes working with units a breeze.
+```
+A powerful and flexible tool that makes previewing your work a breeze.
 ```
 
-This revision names the library's purpose and what users can do with it:
+The revised description names the workflow and visible behavior:
 
-```markdown
-A library for working with physical units in Polars. Convert column values
-between units without writing the conversion arithmetic by hand.
+```
+Preview Markdown files in a browser. The page reloads when you save the file.
+```
+
+## Returning user
+
+Returning users need to determine whether a change applies and which action the change requires. Returning users know the product's public concepts and previous behavior. Give brief recaps of familiar concepts, and describe changes without requiring knowledge of repository internals.
+
+State the affected versions or configurations, the changed public behavior, the effect of the change, and any required action. Put migration details immediately before the step that requires those details. A returning user may have skipped releases, so name the relevant previous behavior.
+
+The first release note neither defines the change nor tells the reader what to do:
+
+```
+The configuration loader has been improved. Update your configuration as needed.
+```
+
+The revised release note states the old behavior, new behavior, affected users, and required action:
+
+```
+Version 2.0 rejects unknown keys in `project.toml`. Version 1.x ignored them.
+Before upgrading, run `tool config check` and remove each key reported as
+`unknown`.
 ```
 
 ## Contributor
 
-Contributors read so they can change the repository correctly. They use contribution guides, developer documentation, and ADRs.
+Contributors use contribution guides, developer documentation, and ADRs to learn how to change the repository correctly.
 
-They know the language and tools. They need an introduction to this repository. Give them details they cannot infer: commands, required checks, conventions that tools do not enforce, and reasons for rules that would otherwise seem arbitrary. Do not repeat information that the tools display at the point of failure.
+Contributors know the language and tools but need an introduction to this repository. Give contributors details they cannot infer, including commands, required checks, conventions that tools do not enforce, and reasons for unexpected rules. Do not repeat information that a tool displays at the point of failure.
 
-This instruction does not define the standard or the required action:
+The first instruction does not define the standard or required action:
 
-```markdown
+```
 Before opening a pull request, ensure your code meets our quality standards
 and follows best practices.
 ```
 
-This revision names one command and explains its relationship to CI:
+The revised instruction names the command and explains the relationship to CI:
 
-```markdown
-Run `make check` before opening a pull request. It runs ruff, ty, and the test
-suite. CI runs the same target.
+```
+Run `make check` before opening a pull request. The command runs the same checks as CI.
 ```
 
 ## Executor
 
-Executors act on instructions without the conversation that produced them. They read specs, tickets, plans, prompts, and handoffs to a fresh session.
+Executors act on instructions without access to the conversation that produced the instructions. They read specs, tickets, plans, prompts, and handoffs to a fresh session.
 
-They know the codebase and can inspect its contents. They still need enough information to find the work and judge when it is complete. Name modules, interfaces, constraints, and acceptance criteria in the project's searchable vocabulary. Record settled decisions without replaying the deliberation. Follow any required document structure.
+Executors know the codebase and can inspect its contents. They still need enough information to locate the work and determine whether the result meets the acceptance criteria. Name modules, interfaces, constraints, and acceptance criteria in the project's searchable vocabulary. Describe the required change without recounting the preceding discussion or rejected options. Follow any required document structure.
 
 An agent starting a new session is an executor. Restate terms coined in conversation and identify agreed files by path. A human colleague who participated in the work is a peer.
 
-This handoff hides every actionable detail:
+The first handoff omits the context needed to execute the request:
 
-```markdown
-We talked through a few options here and eventually agreed that the timezone
-handling probably needs to be centralised somewhere sensible.
+```
+Add the output option we discussed to the status command.
 ```
 
-This revision identifies the interface, behaviour, dependency, and error cases:
+The revised handoff identifies the interface, scope, settled behavior, compatibility requirement, and completion criteria:
 
-```markdown
-Add `parse_local_datetime` to the shared pipeline utilities. It takes a naive
-Europe/London wall-clock datetime and returns a UTC-aware datetime. Use
-`zoneinfo.ZoneInfo("Europe/London")` so daylight-saving transitions use the
-correct offset. Raise `ValueError` for an aware input. Ambiguous fall-back times
-use `fold=0`.
+```
+Add `--json` to the `status` command in `src/cli/status.ts`. When `--json` is present,
+print the same fields as the table using the existing API response names. Keep
+table output as the default. Add tests for both formats.
 ```
 
 ## Maintainer
 
-Maintainers read prose while changing the code beside it. They encounter comments, docstrings, commit messages, and log lines.
+Maintainers read comments, docstrings, commit messages, and log lines while changing the related code.
 
-They have the code in view, so prose that restates it stalls them. Explain what the code cannot express by itself: the reason for a design choice, a domain invariant, units, ranges, coordinate spaces, ownership, lifetime, ordering requirements, performance bounds, and error behaviour that affects callers.
+Maintainers can access all relevant code. Restating the code in prose slows them down. Use prose for information that the code cannot express, including the reason for a design choice, domain invariants, units, ranges, coordinate spaces, ownership, lifetime, ordering requirements, performance bounds, and error behavior that affects callers.
 
-Docstrings for public APIs define their contracts. State accepted inputs and units, the meaning of the return value, clamping or normalisation, mutation, absence, and error cases.
+A public API docstring defines the API contract. State accepted inputs and units, the meaning of the return value, clamping or normalization, mutation, absence, and error cases.
 
-Names should carry information that the code can express. If a comment only translates an identifier into English, improve the identifier and delete the comment.
+Names should carry information that code can express. If a comment only translates an identifier into English, rename the identifier and delete the comment.
+
+The first comment restates the next line:
 
 ```python
-# Restates the code and adds no information.
-# Loop over the sensors and average their readings.
+# Sort the jobs by creation time.
+jobs.sort(key=lambda job: job.created_at)
+```
 
-# Explains an invariant that the code cannot express.
-# Sensor readings arrive at irregular intervals, so the mean is time-weighted.
-# A plain mean over-counts the sensors that report most often.
+The revised comment records the ordering constraint that the code cannot express:
+
+```python
+# Workers retry from the front of the queue, so keep the oldest job first.
+jobs.sort(key=lambda job: job.created_at)
 ```
 
 ## Peer
 
 Peers know the codebase and the conversation. They read chat replies, review comments, and handoffs between people who participated in the work.
 
-Use the shared vocabulary and name familiar files directly. Do not restate the request, narrate the next action, or summarise work the reader just watched.
+Peers already know the request and the work completed during the current conversation. Start the reply with new information, such as the result or a point that still needs discussion.
 
-Do not let fast pacing omit a necessary reference. Shared context does not tell a peer which of four routers a sentence means.
+Shared knowledge does not remove the need for precise references. A repository may contain two files named `config.py`. Name the relevant path, such as `src/cli/config.py`, instead of writing "the config file."
 
 This reply leaves the cause and change ambiguous:
 
-```markdown
+```
 Fixed it. The design had drifted, which is why the change was needed.
 ```
 
-This revision identifies both:
+This reply identifies both the cause and the change:
 
-```markdown
-`ingest_router` was dispatching on file extension, so the new Parquet path fell
-through to the CSV branch. It now dispatches on the event type enum.
+```
+`save_report` wrote every report to `report.txt`, so each run replaced the
+previous report. The function now includes the report date in the filename.
 ```
