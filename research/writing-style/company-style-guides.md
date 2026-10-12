@@ -32,7 +32,7 @@ That is a synthesis from the sources, not a formal rule published by any one com
 
 - **Owner and source:** Google, [Audience, Technical Writing One](https://developers.google.com/tech-writing/one/audience).
 - **Published guidance, paraphrased:** Supply the knowledge and skills readers need for their task after accounting for what they already know. Start audience analysis with the reader's role, but do not stop there. People in the same role have different knowledge. Also consider their proximity to the subject and how recently they used that knowledge. List what readers must learn, put prerequisite tasks before dependent tasks, match vocabulary to the audience, and explain more as the audience becomes less close to the project.
-- **Representative example:** Google's sample audience knows C++ and a related API, but has not used the new build environment and may need a refresher on matrix multiplication. The example records knowledge topic by topic instead of assigning one global level such as "technical."
+- **Representative example:** Google's sample audience knows C++ and a related API, but has not used the new build environment and may need a refresher on matrix multiplication. The example records knowledge topic by topic instead of assigning one global level such as "technical".
 - **Possible lesson for the skill, inferred:** Keep prior knowledge as the governing idea, but describe it along explicit dimensions. A profile can say that a returning user knows public concepts and normal workflows while lacking repository structure and implementation details. The source also supports ordering an explanation by knowledge dependencies rather than adding every caveat near the start.
 
 ### Google: Documents
@@ -45,7 +45,7 @@ That is a synthesis from the sources, not a formal rule published by any one com
 ### Microsoft: Content planning
 
 - **Owner and source:** Microsoft, [Content planning, Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/content-planning).
-- **Published guidance, paraphrased:** Define the audience more narrowly than a broad label such as "developers." Ask what software they build, how they work, and which tools they use. Identify what they want to accomplish, such as evaluating a purchase, learning software, solving a problem, or preparing for a migration. Choose the content form and publication channel based on that need, its urgency, and how the audience will look for help.
+- **Published guidance, paraphrased:** Define the audience more narrowly than a broad label such as "developers". Ask what software they build, how they work, and which tools they use. Identify what they want to accomplish, such as evaluating a purchase, learning software, solving a problem, or preparing for a migration. Choose the content form and publication channel based on that need, its urgency, and how the audience will look for help.
 - **Representative example:** Microsoft's planning questions distinguish a reader deciding whether to buy from one preparing for a migration. Both are product users, but they need different facts and formats.
 - **Possible lesson for the skill, inferred:** Separate prior knowledge from purpose. A returning user's familiarity does not determine whether they need a changelog, migration guide, reference page, or troubleshooting procedure. The profile should capture the likely goal without treating it as the only possible goal.
 
@@ -59,7 +59,7 @@ That is a synthesis from the sources, not a formal rule published by any one com
 ### GitHub: Style guide, release notes
 
 - **Owner and source:** GitHub, [Style guide, release notes](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#release-notes).
-- **Published guidance, paraphrased:** Release notes cover administrator-facing or user-facing changes in a versioned product. A feature note should answer, in sequence, whether the change applies to the reader's role or access, what need it meets, what the feature does, and where to learn more. A bug-fix note should identify the affected audience and the behaviour they previously experienced. A change note may also state the problem, new behaviour, and old behaviour. Notes should omit phrases already implied by context, such as "fixed a bug" or usually "now."
+- **Published guidance, paraphrased:** Release notes cover administrator-facing or user-facing changes in a versioned product. A feature note should answer, in sequence, whether the change applies to the reader's role or access, what need it meets, what the feature does, and where to learn more. A bug-fix note should identify the affected audience and the behaviour they previously experienced. A change note may also state the problem, new behaviour, and old behaviour. Notes should omit phrases already implied by context, such as "fixed a bug" or usually "now".
 - **Representative example:** GitHub's feature notes begin with a role such as site administrator or enterprise owner, state what that person can do, and link to task documentation. Its retirement pattern names the removed function and its replacement.
 - **Possible lesson for the skill, inferred:** This is direct evidence for the missing returning-user profile. Such readers know the product already, so they need applicability, impact, changed behaviour, action, and links. They do not need a fresh product introduction or codebase internals.
 
@@ -82,7 +82,7 @@ That is a synthesis from the sources, not a formal rule published by any one com
 - **Owner and source:** IBM, [Progressive Disclosure](https://www.ibm.com/docs/en/technical-content?topic=practices-progressive-disclosure).
 - **Published guidance, paraphrased:** Show only the detail needed at the current point, leave a clear path to more, and add detail as the user proceeds. Plan the progression from a concrete understanding of user tasks. IBM's progression moves through automatic and inline assistance, task help, tours, and full web content.
 - **Representative example:** A field can offer a default first, then inline context or an example, then task help, while a full conceptual or configuration article remains available on the web.
-- **Possible lesson for the skill, inferred:** The existing phrase "add context the reader lacks" should be paired with "when they need it." Progressive disclosure provides established language for the skill's idea of pace and may be clearer than the new "stall" and "jump" vocabulary on first encounter.
+- **Possible lesson for the skill, inferred:** The existing phrase "add context the reader lacks" should be paired with "when they need it". Progressive disclosure provides established language for the skill's idea of pace and may be clearer than the new "stall" and "jump" vocabulary on first encounter.
 
 ### Apple: Apple Style Guide
 
@@ -111,7 +111,7 @@ These are recommendations derived from the sources, not company rules.
 
 1. Add **Returning user** between **Adopter** and **Contributor**.
 
-   Suggested definition: "Knows the product's public concepts and normal workflows, but not its internals. Reads changelogs, release notes, upgrade guides, known issues, reference pages, and advanced user documentation."
+   Suggested definition: "Knows the product's public concepts and normal workflows, but not its internals. Reads changelogs, release notes, upgrade guides, known issues, reference pages, and advanced user documentation".
 
 2. Treat the five or six reader profiles as convenient defaults, not a complete audience-analysis method. Ask four questions before choosing one:
 

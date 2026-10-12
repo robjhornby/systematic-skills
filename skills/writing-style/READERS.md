@@ -1,6 +1,6 @@
 # The six readers
 
-This guide defines six recurring reader profiles for technical writing. The profiles combine the reader's relationship to the work, public product knowledge, repository knowledge, and task conversation knowledge. Each profile also names the reader's goal and typical documents.
+This guide defines six recurring reader profiles for technical writing. The profiles combine the reader's relationship to the work, public product knowledge, repository knowledge, and task conversation knowledge. Each profile includes the reader's goal and typical documents.
 
 The profiles describe common situations rather than exclusive roles. A returning user who starts contributing code may fit the Returning user profile for release notes and the Contributor profile for repository setup. Choose a profile for each section according to the assumed knowledge and required action.
 
@@ -17,7 +17,7 @@ The profiles describe common situations rather than exclusive roles. A returning
 
 Adopters decide whether to use the project and learn the basic workflow. They read READMEs and user documentation.
 
-Adopters have no product or repository context. Define internal terms on first use and explain the product's purpose before explaining the implementation. Tell adopters the product's purpose, prerequisites, installation steps, and first command. Use concrete claims instead of promotional adjectives.
+Adopters have no product or repository context. Define internal terms on first use and explain the product's purpose before explaining the implementation. Tell adopters the product's purpose, prerequisites, installation steps, and first command. State behavior and design goals instead of promotional adjectives.
 
 The first description could apply to any library:
 
@@ -25,7 +25,7 @@ The first description could apply to any library:
 A powerful and flexible tool that makes previewing your work a breeze.
 ```
 
-The revised description names the workflow and visible behavior:
+The revised description includes the workflow and visible behavior:
 
 ```
 Preview Markdown files in a browser. The page reloads when you save the file.
@@ -64,7 +64,7 @@ Before opening a pull request, ensure your code meets our quality standards
 and follows best practices.
 ```
 
-The revised instruction names the command and explains the relationship to CI:
+The revised instruction includes the command and its relationship to CI:
 
 ```
 Run `make check` before opening a pull request. The command runs the same checks as CI.
@@ -100,7 +100,7 @@ Maintainers can access all relevant code. Restating the code in prose slows them
 
 A public API docstring defines the API contract. State accepted inputs and units, the meaning of the return value, clamping or normalization, mutation, absence, and error cases.
 
-Names should carry information that code can express. If a comment only translates an identifier into English, rename the identifier and delete the comment.
+Identifiers should convey information that code can express. If a comment only translates an identifier into English, rename the identifier and delete the comment.
 
 The first comment restates the next line:
 
@@ -122,7 +122,7 @@ Peers know the codebase and the conversation. They read chat replies, review com
 
 Peers already know the request and the work completed during the current conversation. Start the reply with new information, such as the result or a point that still needs discussion.
 
-Shared knowledge does not remove the need for precise references. A repository may contain two files named `config.py`. Name the relevant path, such as `src/cli/config.py`, instead of writing "the config file."
+Shared knowledge does not remove the need for precise references. A repository may contain two files named `config.py`. Name the relevant path, such as `src/cli/config.py`, instead of writing "the config file".
 
 This reply leaves the cause and change ambiguous:
 

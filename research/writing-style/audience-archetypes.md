@@ -104,7 +104,7 @@ The six profiles can still be useful as shortcuts. They should not be presented 
 
 ### Experienced user
 
-`Experienced user` is the clearest and has direct support from DITA's user-plus-experience model. Readers will understand it without learning a new term. Its drawbacks are that it breaks the one-word naming pattern and that "experienced" needs a boundary. In this skill, the boundary could be "knows the product's public concepts and prior behavior, but not its internals."
+`Experienced user` is the clearest and has direct support from DITA's user-plus-experience model. Readers will understand it without learning a new term. Its drawbacks are that it breaks the one-word naming pattern and that "experienced" needs a boundary. In this skill, the boundary could be "knows the product's public concepts and prior behavior, but not its internals".
 
 ### Returning user
 

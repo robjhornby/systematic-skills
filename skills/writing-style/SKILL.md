@@ -43,7 +43,6 @@ The skill uses **stall** as an editorial label for a sentence that gives the int
 
 - A sentence repeats nearby material. For example, a comment translates the next line into English or a reply restates the request.
 - A sentence could appear unchanged in any project. "This module is designed for flexibility and maintainability" gives no project-specific information.
-- A sentence names an impression instead of a mechanism. Replace "queries stay fast" with a measured claim such as "a query over 10,000 rows returns in under 50 ms".
 
 The skill uses **jump** as an editorial label for an omitted prerequisite or connection. A jump usually has one of these forms:
 
@@ -61,17 +60,13 @@ Do not shorten a passage at the expense of required context. Readers can skim a 
 
 ## Write explicit sentences
 
-Name the grammatical subject of each sentence. Use the predicate to state what the subject does or experiences. Prefer concrete nouns such as "prior knowledge," "required information," and "example" to metaphors such as "what the reader holds" or "what moves them".
+Choose a subject that fits the fact. Use a person or running program as the subject when its action matters: "The editor removes repeated claims". For stored information, describe its state or contents: "The guide contains the installation steps". Attribute a claim to a document with "According to the release notes, the option is available in version 2.0". In instructions, address the reader: "Write the reason for the decision in the ticket".
 
 Keep words that readers must connect close together. An anaphoric pronoun such as "it," "this," or "they" gets its meaning from an antecedent. Use a pronoun when a nearby noun phrase is the only plausible antecedent. Repeat the noun phrase when another antecedent is possible or when an embedded clause separates the pronoun from the antecedent.
 
-Use clause structure to show cause and effect. When an action causes a result, make the action the grammatical subject and name the result in the predicate. Choose a familiar verb that describes the result. If one verb hides the causal relationship, use a separate causative verb such as "causes" or "makes".
+State conditions and results in separate clauses: "If a link is broken, the site build fails". When the actor matters, state its action: "The link checker fails the build when it finds a broken link". Use passive voice when the actor is unknown or irrelevant: "The broken link is reported in CI".
 
-Prefer literal descriptions of states and actions to spatial or mechanical shorthand. For example:
-
-> Maintainers can access all relevant code. Restating the code in prose slows them down.
-
-The first sentence uses the literal verb "access". The second sentence makes the gerund-participial clause "Restating the code in prose" the grammatical subject. The predicate "slows them down" names the effect. The pronoun "them" has one nearby plural antecedent, "Maintainers".
+Prefer literal descriptions of states and actions to spatial or mechanical shorthand. Use "The review is posted" for a review's status and "The reviewer posts the review" when the reviewer matters.
 
 Introduce a category before listing its attributes. Keep the items in a list grammatically parallel:
 
@@ -85,15 +80,17 @@ Use a complete sentence unless a heading, label, or short description makes the 
 
 State the behavior, invariant, or result. Omit praise, suspense, claims of importance, and announcements about what the next section will cover.
 
-Name behavior and properties directly. Use contrast when the difference is the point, such as a trade-off between two options or an invariant that readers often reverse. In other cases, state the correct fact directly. After a correction, replace the old explanation instead of recounting the reason for the correction.
+Describe behavior and properties directly. Use contrast when the difference is the point, such as a trade-off between two options or an invariant that readers often reverse. In other cases, state the correct fact directly. After a correction, replace the old explanation instead of recounting the reason for the correction.
 
-Avoid the stock "X, not Y" construction. State X alone when X carries the point. When a comparison matters, vary the sentence structure and explain the difference.
+Avoid the stock "X, not Y" construction. State X alone when it conveys the point. When a comparison matters, vary the sentence structure and explain the difference.
 
 Describe the current state unless the document records change. Changelogs record history, specs describe future work, and dated logs record events. Other documents should omit migration history, former behavior, planned replacements, and progress reports.
 
-Replace vague qualifiers with quantities when measurements exist. Replace "the tank may be full soon" with "the level sensor reads 95%, within its 2% accuracy range". State the uncertainty in the measurement instead of hedging the whole sentence.
+Choose claims that remain useful as the work changes. Describe behavior or coverage at the level the reader needs. In a PR description, "Tests cover the new retry logic" remains accurate if more tests are added. State a goal as a goal: "The project aims for short build times to support quick iteration".
 
-Prefer plain words and active voice. Write "use" instead of "utilize," "help" instead of "facilitate," and "the loader parses the file" instead of "the file is parsed". Name the actor. Replace an adverb and weak verb with a precise verb or a measurement.
+Use a measured result when the value helps the reader assess a decision or outcome. Give the method, input, environment, and date or revision so the result is tied to the run that produced it. Use past tense for that run: "On 12 October 2026, `scripts/benchmark.sh` measured 8% lower runtime for the example case after the change than before it on an M3 Mac with 16 GB of memory".
+
+Prefer plain words. Write "use" instead of "utilize" and "help" instead of "facilitate". Use active voice when the reader needs to know who acts, and passive voice when the result matters more. Replace an adverb and weak verb with a precise verb.
 
 Use sentence case headings, straight quotes, no emoji, and commas or full stops instead of em dashes.
 
@@ -106,5 +103,6 @@ Before finishing a passage, answer these questions:
 - Which sentences repeat known information?
 - Which sentences require missing context?
 - Could any paragraph appear unchanged in another project's documentation?
-- Does each causal sentence name both the cause and the result?
+- Does each claim help the reader, and can it remain accurate through routine edits? If a measurement matters, can the reader find how and when it was obtained?
+- Does each causal sentence state the condition and result, or identify the actor and its action?
 - Could a literal noun or verb replace any shorthand metaphor?
